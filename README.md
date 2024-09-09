@@ -1,5 +1,4 @@
 # Estrutura de Dados no Python
-<hr>
 
 ### Listas Ligadas:
 - [Lista Simplesmente Ligada](/linkedlists/singlylinkedlist/singlylinkedlist.py)
