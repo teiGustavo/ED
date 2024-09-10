@@ -13,3 +13,10 @@
 ### Pilhas:
 - [Pilha Simples](/stacks/simplestack.py): Implementada utilizando o [deque](https://docs.python.org/pt-br/3/library/collections.html)
 - [Pilha](/stacks/stack.py): Implementada utilizando a [Lista Duplamente Ligada](/linkedlists/doublylinkedlist/doublylinkedlist.py)
+
+### Importações:
+```python
+from linkedlists import SinglyLinkedList, DoublyLinkedList
+from queues import SimpleQueue, Queue, LifoQueue, PriorityQueue
+from stacks import SimpleStack, Stack
+```
