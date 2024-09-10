@@ -70,13 +70,13 @@ from linkedlists import DoublyLinkedList
     - stop: Índice a terminar a procura (limite)
   - Definição: Retorna o índice do elemento procurado
   - Retorno: *int or ValueError*
-- ***count(value: Any):***,
+- ***count(value: Any):***
   - Parâmetros Obrigatórios:
     - value: Elemento a ser contado
   - Parâmetros Opcionais: Nenhum
   - Definição: Retorna a quantidade de vezes em que o elemento aparece
   - Retorno: *int*
-- ***sort(key: Callable, reverse: bool):*** Retorna *None*,
+- ***sort(key: Callable, reverse: bool):***
   - Parâmetros Obrigatórios: Nenhum
   - Parâmetros Opcionais: 
     - key: Função que recebe um elemento da lista e retorna o elemento a ser usado na ordenação
@@ -93,6 +93,27 @@ from linkedlists import DoublyLinkedList
   - Parâmetros Opcionais: Nenhum
   - Definição: Retorna uma cópia idêntica da lista
   - Retorno: *[Singly or Doubly]LinkedList*
+
+### Complexidades (Pior Caso):
+| - | Lista Simplesmente Ligada | Lista Duplamente Ligada |
+| ------- | ------------------------- | ----------------------- |
+| ***\__str\__()*** | Temporal: O(N) <br>Espacial: O(N) | Temporal: O(N) <br>Espacial: O(N) |
+| ***\__getitem\__()*** | Temporal: O(1) ao começo da lista ou O(N)  <br>Espacial: O(1)| Temporal: O(1) nas extremidades da lista (começo/fim) ou O(N/2)  <br>Espacial: O(1)|
+| ***length()*** | Temporal: O(1) <br>Espacial: O(1) | Temporal: O(1) <br>Espacial: O(1) |
+| ***is_empty()*** | Temporal: O(1)  <br>Espacial: O(1)| Temporal: O(1)  <br>Espacial: O(1)|
+| ***print()***  | Temporal: O(N)  <br>Espacial: O(1)| Temporal: O(N)  <br>Espacial: O(1)|
+| ***append()*** | Temporal: O(1)  <br>Espacial: O(1)| Temporal: O(1)  <br>Espacial: O(1)|
+| ***extend()*** | Temporal: A definir  <br>Espacial: O(1)| Temporal: A definir  <br>Espacial: O(1)|
+| ***insert()*** | Temporal: O(1) se o inserir ao começo ou O(N)  <br>Espacial: O(1)| Temporal: O(1) se o inserir nas extremidades (começo/fim) ou O(N)  <br>Espacial: O(1)|
+| ***remove()*** | Temporal: O(1) se o remover do começo ou O(N)  <br>Espacial: O(1)| Temporal: O(1) se o remover das extremidades (começo/fim) ou O(N)  <br>Espacial: O(1)|
+| ***pop()*** | Idênticas ao ***remove()*** | Idênticas ao ***remove()*** |
+| ***clear()*** | Temporal: O(1)  <br>Espacial: O(1)| Temporal: O(1)  <br>Espacial: O(1)|
+| ***index()***  | Temporal: O(N)  <br>Espacial: O(1)| Temporal: O(N)  <br>Espacial: O(1)|
+| ***count()*** | Temporal: O(N)  <br>Espacial: O(1)| Temporal: O(N)  <br>Espacial: O(1)|
+| ***sort()*** | Temporal: O(N²)  <br>Espacial: O(1)| Temporal: O(N²)  <br>Espacial: O(1)|
+| ***reverse()*** | Temporal: O(N)  <br>Espacial: O(1)| Temporal: O(N)  <br>Espacial: O(1)|
+| ***copy()*** | Temporal: O(N)  <br>Espacial: O(N)| Temporal: O(N)  <br>Espacial: O(N)|
+
 
 ### Implementações:
 - [Lista Simplesmente Ligada](/linkedlists/singlylinkedlist/singlylinkedlist.py)
