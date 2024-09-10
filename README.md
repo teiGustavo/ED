@@ -1,8 +1,8 @@
 # Estrutura de Dados no Python
 
 ### Listas Ligadas:
-- [Lista Simplesmente Ligada](/linkedlists/singlylinkedlist/singlylinkedlist.py)
-- [Lista Duplamente Ligada](/linkedlists/doublylinkedlist/doublylinkedlist.py)
+- [Lista Simplesmente Ligada](/linkedlists/README.md)
+- [Lista Duplamente Ligada](/linkedlists/README.md)
 
 ### Filas:
 - [Fila Simples](/queues/simplequeue.py): Implementada utilizando o [deque](https://docs.python.org/pt-br/3/library/collections.html)
