@@ -106,7 +106,7 @@ from linkedlists import DoublyLinkedList
 | ***extend()*** | Temporal: A definir  <br>Espacial: O(1)| Temporal: A definir  <br>Espacial: O(1)|
 | ***insert()*** | Temporal: O(1) se o inserir ao começo ou O(N)  <br>Espacial: O(1)| Temporal: O(1) se o inserir nas extremidades (começo/fim) ou O(N)  <br>Espacial: O(1)|
 | ***remove()*** | Temporal: O(1) se o remover do começo ou O(N)  <br>Espacial: O(1)| Temporal: O(1) se o remover das extremidades (começo/fim) ou O(N)  <br>Espacial: O(1)|
-| ***pop()*** | Idênticas ao ***remove()*** | Idênticas ao ***remove()*** |
+| ***pop()*** | Temporal: O(1) se o remover do começo ou O(N)  <br>Espacial: O(1)| Temporal: O(1) se o remover das extremidades (começo/fim) ou O(N)  <br>Espacial: O(1)|
 | ***clear()*** | Temporal: O(1)  <br>Espacial: O(1)| Temporal: O(1)  <br>Espacial: O(1)|
 | ***index()***  | Temporal: O(N)  <br>Espacial: O(1)| Temporal: O(N)  <br>Espacial: O(1)|
 | ***count()*** | Temporal: O(N)  <br>Espacial: O(1)| Temporal: O(N)  <br>Espacial: O(1)|
