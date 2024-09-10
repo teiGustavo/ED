@@ -22,7 +22,12 @@ class SinglyLinkedList:
     def __repr__(self) -> str:
         return f'SinglyLinkedList(head={self.head}, tail={self.tail}, length={self.__length})'
 
-    def __str__(self, reversed: bool = False) -> str:
+    @overload
+    def __str__(self) -> str: ...
+    @overload
+    def __str__(self, reversed: bool) -> str: ...
+
+    def __str__(self, reversed = False):
         node = self.head
         list = ''
 
@@ -158,7 +163,12 @@ class SinglyLinkedList:
     def is_empty(self) -> bool:
         return True if self.length() == 0 else False
         
-    def print(self, reversed: bool = False) -> None:
+    @overload
+    def print(self) -> None: ...
+    @overload
+    def print(self, reversed: bool) -> None: ...
+
+    def print(self, reversed = False):
         if reversed is True:
             print(self.__str__(True))
             return
@@ -234,8 +244,13 @@ class SinglyLinkedList:
                 node = node.next
         
         raise ValueError(f'{value} is not in singly linked list')
+    
+    @overload
+    def pop(self) -> Node: ...
+    @overload
+    def pop(self, index: int) -> Node: ...
 
-    def pop(self, index: int = -1) -> Node:
+    def pop(self, index = -1):
         if self.is_empty() or not self.head:
             raise IndexError('pop from empty singly linked list')        
 
@@ -254,7 +269,7 @@ class SinglyLinkedList:
 
             return target_node
         
-        previous_node: Node = self.__getitem__(index - 1, True)
+        previous_node = self.__getitem__(index - 1, True)
         target_node = previous_node.next
         self.__length -= 1
 

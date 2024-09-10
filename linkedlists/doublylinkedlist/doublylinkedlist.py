@@ -21,8 +21,13 @@ class DoublyLinkedList:
 
     def __repr__(self) -> str:
         return f'DoublyLinkedList(head={self.head}, tail={self.tail}, length={self.__length})'
+    
+    @overload
+    def __str__(self) -> str: ...
+    @overload
+    def __str__(self, reversed: bool) -> str: ...
 
-    def __str__(self, reversed: bool = False) -> str:
+    def __str__(self, reversed = False):
         list = ''
         get_node = lambda node: node.previous if reversed is True else lambda node: node.next
 
@@ -139,7 +144,12 @@ class DoublyLinkedList:
     def is_empty(self) -> bool:
         return True if self.length() == 0 else False
         
-    def print(self, reversed: bool = False) -> None:
+    @overload
+    def print(self) -> None: ...
+    @overload
+    def print(self, reversed: bool) -> None: ...
+
+    def print(self, reversed = False):
         if reversed is True:
             print(self.__str__(True))
             return
@@ -227,7 +237,12 @@ class DoublyLinkedList:
         
         raise ValueError(f'{value} is not in doubly linked list')
 
-    def pop(self, index: int = -1) -> Node:
+    @overload
+    def pop(self) -> Node: ...
+    @overload
+    def pop(self, index: int) -> Node: ...
+
+    def pop(self, index = -1):
         if self.is_empty() or not self.head:
             raise IndexError('pop from empty doubly linked list')        
 

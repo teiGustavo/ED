@@ -1,6 +1,7 @@
 from typing import Any, Iterable, Iterator, Deque, overload
-from ._queueinterface import QueueInterface
 from collections import deque
+
+from ._queueinterface import QueueInterface
 
 
 class SimpleQueue(QueueInterface):
@@ -10,11 +11,7 @@ class SimpleQueue(QueueInterface):
     def __init__(self, iterable: Iterable) -> None: ...
 
     def __init__(self, iterable = None) -> None:
-        self.__items: Deque[Any] = deque()
-
-        if iterable:
-            for item in iterable:
-                self.enqueue(item)
+        self.__items: Deque[Any] = deque(iterable)
 
     def __repr__(self) -> str:
         q = f'{self.__items}'.replace('deque([', '').replace('])', '')
@@ -45,6 +42,6 @@ class SimpleQueue(QueueInterface):
 
     def dequeue(self) -> Any:
         if self.is_empty():
-            raise IndexError('pop from empty simple queue')
+            raise IndexError('dequeue from empty simple queue')
         
         return self.__items.popleft()

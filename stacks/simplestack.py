@@ -1,28 +1,27 @@
 from typing import Any, Iterable, Iterator, Deque, overload
+from collections import deque
 
-from ._queueinterface import QueueInterface
-from linkedlists import SinglyLinkedList
+from ._stackinterface import StackInterface
 
-
-class Queue(QueueInterface):
+class SimpleStack(StackInterface):
     @overload
     def __init__(self) -> None: ...
     @overload
     def __init__(self, iterable: Iterable) -> None: ...
 
     def __init__(self, iterable = None) -> None:
-        self.__items: SinglyLinkedList = SinglyLinkedList(iterable)
+        self.__items: Deque[Any] = deque(iterable)
 
     def __repr__(self) -> str:
-        q = f'{self.__items}'.replace('SinglyLinkedList([', '').replace('])', '')
+        q = f'{self.__items}'.replace('deque([', '').replace('])', '')
         
-        return f'Queue([{q}])'
+        return f'SimpleStack([{q}])'
 
     def __str__(self) -> str:
         return self.__repr__()
     
     def __len__(self) -> int:
-        return self.__items.length()
+        return len(self.__items)
     
     def __iter__(self) -> Iterator:
         return self.__items.__iter__()
@@ -34,14 +33,14 @@ class Queue(QueueInterface):
         return self.__len__()
     
     def is_empty(self) -> bool:
-        return self.__items.is_empty()
+        return True if self.__len__() == 0 else False
 
-    def enqueue(self, *items: Any) -> None:
+    def push(self, *items: Any) -> None:
         for item in items:
             self.__items.append(item)
 
-    def dequeue(self) -> Any:
+    def pop(self) -> Any:
         if self.is_empty():
-            raise IndexError('dequeue from empty queue')
+            raise IndexError('pop from empty simple stack')
         
-        return self.__items.pop(0)
+        return self.__items.pop()

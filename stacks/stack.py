@@ -1,22 +1,21 @@
-from typing import Any, Iterable, Iterator, Deque, overload
+from typing import Any, Iterable, Iterator, overload
 
-from ._queueinterface import QueueInterface
-from linkedlists import SinglyLinkedList
+from ._stackinterface import StackInterface
+from linkedlists import DoublyLinkedList
 
-
-class Queue(QueueInterface):
+class Stack(StackInterface):
     @overload
     def __init__(self) -> None: ...
     @overload
     def __init__(self, iterable: Iterable) -> None: ...
 
     def __init__(self, iterable = None) -> None:
-        self.__items: SinglyLinkedList = SinglyLinkedList(iterable)
+        self.__items: DoublyLinkedList = DoublyLinkedList(iterable)
 
     def __repr__(self) -> str:
-        q = f'{self.__items}'.replace('SinglyLinkedList([', '').replace('])', '')
+        q = f'{self.__items}'.replace('DoublyLinkedList([', '').replace('])', '')
         
-        return f'Queue([{q}])'
+        return f'Stack([{q}])'
 
     def __str__(self) -> str:
         return self.__repr__()
@@ -36,12 +35,12 @@ class Queue(QueueInterface):
     def is_empty(self) -> bool:
         return self.__items.is_empty()
 
-    def enqueue(self, *items: Any) -> None:
+    def push(self, *items: Any) -> None:
         for item in items:
             self.__items.append(item)
 
-    def dequeue(self) -> Any:
+    def pop(self) -> Any:
         if self.is_empty():
-            raise IndexError('dequeue from empty queue')
+            raise IndexError('pop from empty stack')
         
-        return self.__items.pop(0)
+        return self.__items.pop()
