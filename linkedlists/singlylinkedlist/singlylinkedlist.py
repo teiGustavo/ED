@@ -159,6 +159,15 @@ class SinglyLinkedList:
     
     def length(self) -> int:
         return self.__length
+    
+    def increase_length(self) -> None:
+        self.__length += 1 
+
+    def decrease_length(self) -> None:
+        if self.__length == 0:
+            raise RuntimeError()
+
+        self.__length -= 1 
 
     def is_empty(self) -> bool:
         return True if self.length() == 0 else False

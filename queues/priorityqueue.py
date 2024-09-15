@@ -1,7 +1,7 @@
 from typing import Any, Iterable, Iterator, Tuple, overload
 
 from ._queueinterface import QueueInterface
-from linkedlists import SinglyLinkedList
+from linkedlists import SinglyLinkedDescendingOrderedList
 from linkedlists.singlylinkedlist import Node
 
 class PriorityQueue(QueueInterface):
@@ -11,11 +11,11 @@ class PriorityQueue(QueueInterface):
     def __init__(self, iterable: Iterable[Tuple[int, Any]]) -> None: ...
 
     def __init__(self, iterable = None) -> None:
-        self.__items: SinglyLinkedList = SinglyLinkedList(iterable)
-        self.__items.sort(key=lambda item: item[0], reverse=True)
+        self.__items: SinglyLinkedDescendingOrderedList = SinglyLinkedDescendingOrderedList(iterable)
+        # self.__items.sort(key=lambda item: item[0], reverse=True)
 
     def __repr__(self) -> str:
-        q = f'{self.__items}'.replace('SinglyLinkedList([', '').replace('])', '')
+        q = f'{self.__items}'.replace('SinglyLinkedOrderedList([', '').replace('])', '')
         
         return f'PriorityQueue([{q}])'
 
@@ -42,20 +42,12 @@ class PriorityQueue(QueueInterface):
     @overload
     def enqueue(self, item: Tuple[int, Any]) -> None: ...
 
-    # TODO: Criar uma lista ligada ordenada
     def enqueue(self, item, priority = None):
         if not isinstance(item, Tuple):
             item = (priority, item)
 
-        if self.is_empty():
-            self.__items.append(item)
-            return
-        
-        for index, list_item in enumerate(self.__items):
-            if item[0] > list_item.data[0]:
-                self.__items.insert(index, item)
-                break
-
+        self.__items.append(item)
+  
     def dequeue(self) -> Any:
         if self.is_empty():
             raise IndexError('dequeue from empty priority queue')

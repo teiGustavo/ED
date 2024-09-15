@@ -1,2 +1,3 @@
 from .singlylinkedlist import SinglyLinkedList
-from .doublylinkedlist.doublylinkedlist import DoublyLinkedList
+from .doublylinkedlist import DoublyLinkedList
+from .orderedlists import SinglyLinkedAscendingOrderedList, SinglyLinkedDescendingOrderedList
