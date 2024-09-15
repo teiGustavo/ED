@@ -1,4 +1,4 @@
-from typing import Any, Iterable, Iterator, Deque, overload
+from typing import Any, Iterable, Iterator, overload
 
 from ._queueinterface import QueueInterface
 from linkedlists import SinglyLinkedList
